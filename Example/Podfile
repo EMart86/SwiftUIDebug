@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftUIDebug_Example' do
+  pod 'SwiftUIDebug', :path => '../'
+
+  target 'SwiftUIDebug_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
