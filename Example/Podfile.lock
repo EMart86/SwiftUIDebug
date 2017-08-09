@@ -1,0 +1,16 @@
+PODS:
+  - SwiftUIDebug (0.1.0)
+
+DEPENDENCIES:
+  - SwiftUIDebug (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftUIDebug:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SwiftUIDebug: f48df1f3613712b51061fb2d2baea9b532d7ccb7
+
+PODFILE CHECKSUM: 895e3af28315a871e6e21173e2256d338a0410f8
+
+COCOAPODS: 1.1.1

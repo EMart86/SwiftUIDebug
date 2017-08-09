@@ -9,16 +9,10 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftUIDebug'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SwiftUIDebug.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'A lightweight on-screen debug UI written in Swift'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Sometimes it is easier and faster to visualize the log output within the same app. Of course a helpful debug tool doesn't costist of only a log output, there are some other helpful features planned. Stay up to date!'
                        DESC
 
   s.homepage         = 'https://github.com/eberl_ma@gmx.at/SwiftUIDebug'
@@ -38,5 +32,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'EMTransformableNavigationController'
 end
