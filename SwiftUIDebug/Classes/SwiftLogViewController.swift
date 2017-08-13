@@ -80,6 +80,14 @@ public final class SwiftLogViewController: UITableViewController {
             tableView.scrollRectToVisible(CGRect(x: 0, y: size.height - 1,  width: size.width, height: 1), animated: true)
         }
     }
+    
+    public override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollToBottom = false
+    }
+    
+    public override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollToBottom = scrollView.contentOffset.y + scrollView.bounds.height >= scrollView.contentSize.height
+    }
 }
 
 extension SwiftLogViewController: SwiftLogViewModelProtocolDelegate {
