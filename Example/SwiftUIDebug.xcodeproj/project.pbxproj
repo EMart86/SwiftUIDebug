@@ -40,10 +40,10 @@
 		607FACE51AFB9204008FA782 /* SwiftUIDebug_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIDebug_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		636DF68DA58F223A47179DAB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		636DF68DA58F223A47179DAB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6EF7B4FFD57030F72B78FD66 /* Pods-SwiftUIDebug_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIDebug_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUIDebug_Example/Pods-SwiftUIDebug_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		743AE37978A93F1242CE46DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		7EF1FE8137F65B3B79C119F9 /* SwiftUIDebug.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SwiftUIDebug.podspec; path = ../SwiftUIDebug.podspec; sourceTree = "<group>"; };
+		743AE37978A93F1242CE46DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7EF1FE8137F65B3B79C119F9 /* SwiftUIDebug.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftUIDebug.podspec; path = ../SwiftUIDebug.podspec; sourceTree = "<group>"; };
 		A0BD404C5875295C2ACC5F21 /* Pods_SwiftUIDebug_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUIDebug_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02345B3139551E49C84BADF /* Pods-SwiftUIDebug_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIDebug_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUIDebug_Example/Pods-SwiftUIDebug_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D04EFCE9BBC5B0BDEE0594EE /* Pods-SwiftUIDebug_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIDebug_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUIDebug_Tests/Pods-SwiftUIDebug_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -497,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftUIDebug/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -511,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftUIDebug/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

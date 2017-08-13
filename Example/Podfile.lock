@@ -1,0 +1,20 @@
+PODS:
+  - EMTransformableNavigationController (1.0.0)
+  - SwiftUIDebug (0.1.0):
+    - EMTransformableNavigationController
+
+DEPENDENCIES:
+  - EMTransformableNavigationController
+  - SwiftUIDebug (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftUIDebug:
+    :path: ../
+
+SPEC CHECKSUMS:
+  EMTransformableNavigationController: 6abc22718892b5bb8c54230895e1b1023abde54f
+  SwiftUIDebug: 6a1730e7b4ff0ebf662463204e4969b7dfd6d664
+
+PODFILE CHECKSUM: af0aad3c580e175100c9415c430dbf704722c13a
+
+COCOAPODS: 1.1.1

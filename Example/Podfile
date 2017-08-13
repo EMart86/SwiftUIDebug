@@ -1,7 +1,8 @@
 use_frameworks!
 
 target 'SwiftUIDebug_Example' do
-  pod 'SwiftUIDebug', :path => '../'
+    pod 'SwiftUIDebug', :path => '../'
+    pod 'EMTransformableNavigationController'
 
   target 'SwiftUIDebug_Tests' do
     inherit! :search_paths
