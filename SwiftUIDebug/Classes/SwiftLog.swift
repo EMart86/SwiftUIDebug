@@ -12,3 +12,5 @@ public protocol SwiftLogProtocol {
     var text: String { get }
     var date: Date? { get }
 }
+
+public final class 

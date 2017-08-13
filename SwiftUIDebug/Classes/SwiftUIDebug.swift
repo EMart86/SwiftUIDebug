@@ -24,7 +24,9 @@ public final class SwiftUIDebug {
         }
     }
     
-    static func debugController(with parentViewController: UIViewController, viewModel: SwiftLogViewModelProtocol) -> EMTransformableNavigationController? {
+    @discardableResult public static func debugController(
+        with parentViewController: UIViewController,
+        viewModel: SwiftLogViewModelProtocol = SwiftLogViewModel()) -> EMTransformableNavigationController? {
         
         guard let viewController = ViewController.log.viewController(with: viewModel) else {
             return nil
