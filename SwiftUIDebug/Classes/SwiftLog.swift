@@ -44,10 +44,12 @@ public final class SwiftLog: SwiftLogProvider {
     
     public func add(_ log: SwiftLogProtocol) {
         logs.append(log)
+        notifyAsyncDid(add: [log])
     }
     
     public func add(_ logs: [SwiftLogProtocol]) {
         self.logs.append(contentsOf: logs)
+        notifyAsyncDid(add: logs)
     }
     
     public func add(_ observer: SwiftLogObserver) {
@@ -66,6 +68,12 @@ public final class SwiftLog: SwiftLogProvider {
     }
     
     //MARK: - Private
+    
+    private func notifyAsyncDid(add item: [SwiftLogProtocol]) {
+        DispatchQueue.main.async {[weak self] in
+            self?.notifyDidAdd(items: item)
+        }
+    }
     
     private func index(of weakObserver: WeakObserver) -> Int? {
         return observers.index(where: { $0 == weakObserver })

@@ -14,7 +14,8 @@ open class SwiftLogViewModel: SwiftLogViewModelProtocol {
     
     init(provider: SwiftLogProvider) {
         self.provider = provider
-        provider.add(self)
+       
+        addObserverAsync()
     }
     
     deinit {
@@ -39,6 +40,14 @@ open class SwiftLogViewModel: SwiftLogViewModelProtocol {
     }
     
     //MARK: - Private
+    
+    fileprivate func addObserverAsync() {
+        DispatchQueue.main.async {[weak self] in
+            if let strongSelf = self {
+                strongSelf.provider.add(strongSelf)
+            }
+        }
+    }
     
     fileprivate func notifySignalUpdate() {
         delegate?.signalUpdate()

@@ -21,7 +21,11 @@ public protocol SwiftLogViewModelProtocol {
 }
 
 public final class SwiftLogViewController: UITableViewController {
-    internal var viewModel: SwiftLogViewModelProtocol?
+    internal var viewModel: SwiftLogViewModelProtocol? {
+        didSet {
+            viewModel?.delegate = self
+        }
+    }
     
     public class func create(_ viewModel: SwiftLogViewModelProtocol) -> SwiftLogViewController {
         let viewController = SwiftLogViewController(style: .plain)
@@ -32,14 +36,40 @@ public final class SwiftLogViewController: UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+    }
+    
+    //MARK: - UITableView DataSource
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.numberOfRows ?? 0
+    }
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LogTableViewCell.nibName) as? LogTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.content = viewModel?.cellItem(for: indexPath)
+        return cell
+    }
+    
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.didSelectItem(at: indexPath)
+    }
+    
+    //MARK: - Private
+    
+    private func setupUI() {
+        
         tableView.register(
             UINib(
                 nibName: LogTableViewCell.nibName,
                 bundle: nil),
-                           forCellReuseIdentifier: LogTableViewCell.nibName)
+            forCellReuseIdentifier: LogTableViewCell.nibName)
+        
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
-    
-    //MARK: - Private
     
     fileprivate func updateUI() {
         tableView.reloadData()

@@ -10,10 +10,12 @@ import UIKit
 import SwiftUIDebug
 
 class ViewController: UIViewController {
+    let provider = LogProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        provider.start()
     }
 
     override func didReceiveMemoryWarning() {
