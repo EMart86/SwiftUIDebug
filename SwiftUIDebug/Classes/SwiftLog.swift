@@ -37,13 +37,20 @@ public final class SwiftLog: SwiftLogProvider {
     }()
     
     private var observers = [WeakObserver]()
-    public private(set) var logs = [SwiftLogProtocol]()
+    public private(set) var logs = [SwiftLogProtocol]() {
+        didSet {
+            if logs.count > maxEntries {
+                logs.removeFirst(logs.count - maxEntries)
+            }
+        }
+    }
     public var maxEntries = 200
     
     internal init() {}
     
     public func add(_ log: SwiftLogProtocol) {
         logs.append(log)
+        
         notifyAsyncDid(add: [log])
     }
     
