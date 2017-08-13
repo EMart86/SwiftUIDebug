@@ -60,11 +60,11 @@ public final class SwiftLogViewController: UITableViewController {
     //MARK: - Private
     
     private func setupUI() {
-        
+        let nib = UINib(
+            nibName: LogTableViewCell.nibName,
+            bundle: Bundle(for: self.classForCoder))
         tableView.register(
-            UINib(
-                nibName: LogTableViewCell.nibName,
-                bundle: nil),
+            nib,
             forCellReuseIdentifier: LogTableViewCell.nibName)
         
         tableView.estimatedRowHeight = 44
