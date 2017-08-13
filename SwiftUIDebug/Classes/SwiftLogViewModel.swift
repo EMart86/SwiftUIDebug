@@ -10,28 +10,21 @@ import Foundation
 
 open class SwiftLogViewModel: SwiftLogViewModelProtocol {
     weak public var delegate: SwiftLogViewModelProtocolDelegate?
-    private var cellItems = [SwiftLogProtocol]()
+    private var provider: SwiftLogProvider
     
-    init(cellItems: [SwiftLogProtocol]? = nil) {
-        if let newCellItems = cellItems {
-            self.cellItems.append(contentsOf: newCellItems)
-        }
+    init(provider: SwiftLogProvider) {
+        self.provider = provider
+        provider.add(self)
     }
     
-    public func add(_ item: SwiftLogProtocol) {
-        cellItems.append(item)
-        notifySignalUpdate()
-    }
-    
-    public func add(_ items: [SwiftLogProtocol]) {
-        cellItems.append(contentsOf: items)
-        notifySignalUpdate()
+    deinit {
+        provider.remove(self)
     }
     
     //MARK: - SwiftLogViewModelProtocol
     
     public var numberOfRows: Int? {
-        return cellItems.count
+        return provider.logs.count
     }
     
     public func cellItem(for indexPath: IndexPath) -> SwiftLogProtocol? {
@@ -45,10 +38,9 @@ open class SwiftLogViewModel: SwiftLogViewModelProtocol {
         notifyShowDetail(for: item)
     }
     
-    
     //MARK: - Private
     
-    private func notifySignalUpdate() {
+    fileprivate func notifySignalUpdate() {
         delegate?.signalUpdate()
     }
     
@@ -57,10 +49,16 @@ open class SwiftLogViewModel: SwiftLogViewModelProtocol {
     }
     
     private func item(for rowAtIndexPath: IndexPath) -> SwiftLogProtocol? {
-        guard cellItems.indices.contains(rowAtIndexPath.row) else {
+        guard provider.logs.indices.contains(rowAtIndexPath.row) else {
             return nil
         }
         
-        return cellItems[rowAtIndexPath.row]
+        return provider.logs[rowAtIndexPath.row]
+    }
+}
+
+extension SwiftLogViewModel: SwiftLogObserver {
+    public func didAdd(items: [SwiftLogProtocol]) {
+        notifySignalUpdate()
     }
 }
