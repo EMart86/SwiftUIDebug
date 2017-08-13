@@ -26,6 +26,7 @@ public final class SwiftLogViewController: UITableViewController {
             viewModel?.delegate = self
         }
     }
+    private var scrollToBottom = true
     
     public class func create(_ viewModel: SwiftLogViewModelProtocol) -> SwiftLogViewController {
         let viewController = SwiftLogViewController(style: .plain)
@@ -73,6 +74,11 @@ public final class SwiftLogViewController: UITableViewController {
     
     fileprivate func updateUI() {
         tableView.reloadData()
+        
+        if scrollToBottom {
+            let size = tableView.contentSize
+            tableView.scrollRectToVisible(CGRect(x: 0, y: size.height - 1,  width: size.width, height: 1), animated: true)
+        }
     }
 }
 
