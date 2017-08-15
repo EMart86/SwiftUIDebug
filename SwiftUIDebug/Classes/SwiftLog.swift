@@ -22,7 +22,11 @@ public struct WeakObserver: Equatable {
         return lhs.observer === rhs.observer
     }
 
-    weak var observer: SwiftLogObserver?
+    public weak var observer: SwiftLogObserver?
+    
+    public init(observer: SwiftLogObserver) {
+        self.observer = observer
+    }
 }
 
 public protocol SwiftLogProviderProtocol {
