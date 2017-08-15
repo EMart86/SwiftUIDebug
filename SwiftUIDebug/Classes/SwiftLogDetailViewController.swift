@@ -30,8 +30,8 @@ public final class SwiftLogDetailViewController: UIViewController {
         return viewController
     }
     
-    public override func awakeFromNib() {
-        super.awakeFromNib()
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         updateUI()
     }
