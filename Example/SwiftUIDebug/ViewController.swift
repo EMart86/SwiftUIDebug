@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import SwiftUIDebug
 
 class ViewController: UIViewController {
+    let provider = LogProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        provider.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,5 +23,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            SwiftUIDebug.debugController(with: self)
+        }
+    }
 }
 

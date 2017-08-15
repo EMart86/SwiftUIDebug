@@ -11,13 +11,37 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+iOS 9.0 or higher
+
 ## Installation
 
 SwiftUIDebug is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "SwiftUIDebug"
+pod 'SwiftUIDebug'
+```
+
+## Example
+
+Import the framework
+
+```swift
+import SwiftUIDebug
+```
+
+In a view controller, add it just like this:
+```Swift
+    SwiftUIDebug.debugController(with: self)
+```
+
+Or you can combine it with the shake gesture:
+```Swift
+override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    if motion == .motionShake {
+        SwiftUIDebug.debugController(with: self)
+    }
+}
 ```
 
 ## Author

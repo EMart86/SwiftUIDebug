@@ -24,14 +24,15 @@ public final class LogTableViewCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        formatter.dateStyle = .long
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
     }
     
     private func updateUI() {
         dateLabel.isHidden = content?.date == nil
         
         if let date = content?.date {
-        dateLabel.text = formatter.string(from: date)
+            dateLabel.text = formatter.string(from: date)
         }
         
         logTextLabel.text = content?.text
