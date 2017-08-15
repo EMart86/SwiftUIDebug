@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SwiftUIDebug'
-s.version          = '1.0.7'
+s.version          = '1.0.8'
 s.summary          = 'A lightweight on-screen debug UI written in Swift'
 
 s.description      = <<-DESC
@@ -24,6 +24,7 @@ s.source           = { :git => 'https://github.com/EMart86/SwiftUIDebug.git', :t
 s.ios.deployment_target = '9.0'
 
 s.source_files = 'SwiftUIDebug/Classes/**/*'
+s.resources = "SwiftUIDebug/Assets/*.xcassets"
 
  s.resource_bundles = {
    'SwiftUIDebug' => ['SwiftUIDebug/Assets/*.png']
