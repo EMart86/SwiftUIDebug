@@ -17,8 +17,8 @@ public protocol SwiftLogObserver: class {
     func didAdd(items: [SwiftLogProtocol])
 }
 
-internal struct WeakObserver: Equatable {
-    static func ==(lhs: WeakObserver, rhs: WeakObserver) -> Bool {
+public struct WeakObserver: Equatable {
+    public static func ==(lhs: WeakObserver, rhs: WeakObserver) -> Bool {
         return lhs.observer === rhs.observer
     }
 
