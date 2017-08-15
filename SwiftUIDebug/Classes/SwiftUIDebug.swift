@@ -13,24 +13,28 @@ public final class SwiftUIDebug {
     enum ViewController {
         case log
         
-        func viewController(with viewModel: Any) -> UIViewController? {
+        func viewController(with viewModel: Any, navigationProvider: SwiftUIDebugNavigationItemProviderProtocol) -> UIViewController? {
             switch self {
             case .log:
                 guard let viewModel = viewModel as? SwiftLogViewModelProtocol else {
                     return nil
                 }
-                return SwiftLogViewController.create(viewModel)
+                return SwiftLogViewController.create(viewModel,
+                                                     navigationProvider: navigationProvider)
             }
         }
     }
     
-    @discardableResult public static func debugController(
-        with parentViewController: UIViewController,
-        viewModel: SwiftLogViewModelProtocol = SwiftLogViewModel(provider: SwiftLog.shared)) -> EMTransformableNavigationController? {
+    @discardableResult public static func debugController(with
+        parentViewController: UIViewController,
+        viewModel: SwiftLogViewModelProtocol = SwiftLogViewModel(provider: SwiftLog.shared),
+        navigationItemProvider: SwiftUIDebugNavigationItemProviderProtocol = SwiftUIDebugNavigationItemProvider()) -> EMTransformableNavigationController? {
         
-        guard let viewController = ViewController.log.viewController(with: viewModel) else {
+        guard let viewController = ViewController.log.viewController(with: viewModel,
+                                                                     navigationProvider: navigationItemProvider) else {
             return nil
         }
+        
         let navigationController = EMTransformableNavigationController(
             rootViewController: viewController
         )

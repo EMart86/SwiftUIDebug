@@ -26,11 +26,14 @@ public final class SwiftLogViewController: UITableViewController {
             viewModel?.delegate = self
         }
     }
+    internal var navigationProvider: SwiftUIDebugNavigationItemProviderProtocol?
     private var scrollToBottom = true
     
-    public class func create(_ viewModel: SwiftLogViewModelProtocol) -> SwiftLogViewController {
+    public class func create(_ viewModel: SwiftLogViewModelProtocol,
+                             navigationProvider: SwiftUIDebugNavigationItemProviderProtocol?) -> SwiftLogViewController {
         let viewController = SwiftLogViewController(style: .plain)
         viewController.viewModel = viewModel
+        viewController.navigationProvider = navigationProvider
         return viewController
     }
     
@@ -70,6 +73,9 @@ public final class SwiftLogViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        navigationProvider?.navigationItem = self.navigationItem
+        navigationProvider?.navigationController = self.navigationController
     }
     
     fileprivate func updateUI() {
@@ -96,6 +102,7 @@ extension SwiftLogViewController: SwiftLogViewModelProtocolDelegate {
     }
     
     public func siganlShowDetail(for item: SwiftLogProtocol) {
-        
+        let viewController = SwiftLogDetailViewController.create(with: SwiftLogDetailViewModel(item))
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
