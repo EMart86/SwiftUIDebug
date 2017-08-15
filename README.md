@@ -70,7 +70,7 @@ SwiftUIDebug.debugController(with: self,
 
 ## Author
 
-eberl_ma@gmx.at, martin.eberl@styria.com
+eberl_ma@gmx.at
 
 ## License
 
