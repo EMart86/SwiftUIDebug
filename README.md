@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
 
+![Animation](./sample-video.gif)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
