@@ -27,7 +27,7 @@ public final class SwiftUIDebug {
     
     @discardableResult public static func debugController(with
         parentViewController: UIViewController,
-        viewModel: SwiftLogViewModelProtocol = SwiftLogViewModel(provider: SwiftLog.shared),
+        viewModel: SwiftLogViewModelProtocol = SwiftLogViewModel(provider: SwiftLogProvider.shared),
         navigationItemProvider: SwiftUIDebugNavigationItemProviderProtocol = SwiftUIDebugNavigationItemProvider()) -> EMTransformableNavigationController? {
         
         guard let viewController = ViewController.log.viewController(with: viewModel,
