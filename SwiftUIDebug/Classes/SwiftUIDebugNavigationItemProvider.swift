@@ -35,7 +35,7 @@ public final class SwiftUIDebugNavigationItemProvider: SwiftUIDebugNavigationIte
     
     private func injectNavigationItems() {
         navigationItem?.leftBarButtonItem = UIBarButtonItem(
-            image:  UIImage(named: "close-button.png"),
+            image:  UIImage(named: "close-button", in: Bundle(for: type(of: self)), compatibleWith: nil),
             style: .plain,
             target: self,
             action: #selector(close))
