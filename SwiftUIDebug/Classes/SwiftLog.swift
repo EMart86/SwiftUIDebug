@@ -25,15 +25,25 @@ internal struct WeakObserver: Equatable {
     weak var observer: SwiftLogObserver?
 }
 
-public protocol SwiftLogProvider {
+public protocol SwiftLogProviderProtocol {
     var logs: [SwiftLogProtocol] { get }
     func add(_ observer: SwiftLogObserver)
     func remove(_ observer: SwiftLogObserver)
 }
 
-public final class SwiftLog: SwiftLogProvider {
-    public static var shared: SwiftLog = {
-        return SwiftLog()
+public struct SwiftLog: SwiftLogProtocol {
+    public let date: Date?
+    public let text: String
+    
+    public init(_ date: Date?, _ text: String) {
+        self.date = date
+        self.text = text
+    }
+}
+
+public final class SwiftLogProvider: SwiftLogProviderProtocol {
+    public static var shared: SwiftLogProvider = {
+        return SwiftLogProvider()
     }()
     
     private var observers = [WeakObserver]()

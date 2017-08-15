@@ -9,11 +9,6 @@
 import Foundation
 import SwiftUIDebug
 
-struct Log: SwiftLogProtocol {
-    let text: String
-    let date: Date?
-}
-
 final class LogProvider {
     private var timer: Timer?
     
@@ -21,7 +16,7 @@ final class LogProvider {
         if #available(iOS 10.0, *) {
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in 
                 DispatchQueue.global(qos: .background).async {
-                    SwiftLog.shared.add(Log(text: "Hello world", date: Date()))
+                    SwiftLogProvider.shared.add(SwiftLog(Date(), "Hello world"))
                 }
             })
         } else {

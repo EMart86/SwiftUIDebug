@@ -10,9 +10,9 @@ import Foundation
 
 open class SwiftLogViewModel: SwiftLogViewModelProtocol {
     weak public var delegate: SwiftLogViewModelProtocolDelegate?
-    private var provider: SwiftLogProvider
+    private var provider: SwiftLogProviderProtocol
     
-    init(provider: SwiftLogProvider) {
+    init(provider: SwiftLogProviderProtocol) {
         self.provider = provider
        
         addObserverAsync()

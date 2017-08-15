@@ -44,6 +44,28 @@ override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
 }
 ```
 
+To add a log entry to the default log provider, simply call:
+
+```Swift
+SwiftLogProvider.shared.add(SwiftLog(Date(), "..."))
+```
+
+## Customization
+
+Since the Log View is embedded in the EMTransformableNavigationController, you can add custom navigation items by implementing the SwiftUIDebugNavigationItemProviderProtocol. Than add your implementation as follows:
+
+```Swift
+SwiftUIDebug.debugController(with: self, navigationItemProvider: 'YourCustomImplementationOfSwiftUIDebugNavigationItemProviderProtocol')
+```
+
+You can also use a custom implementation for your log provider:
+
+```Swift
+SwiftUIDebug.debugController(with: self,
+                             viewModel: SwiftLogViewModel(provider: 'YourCustomImplementationOfSwiftLogProviderProtocol')
+                             navigationItemProvider: 'YourCustomImplementationOfSwiftUIDebugNavigationItemProviderProtocol')
+```
+
 ## Author
 
 eberl_ma@gmx.at, martin.eberl@styria.com
