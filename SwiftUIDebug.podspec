@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SwiftUIDebug'
-s.version          = '1.0.6'
+s.version          = '1.0.7'
 s.summary          = 'A lightweight on-screen debug UI written in Swift'
 
 s.description      = <<-DESC
@@ -25,9 +25,9 @@ s.ios.deployment_target = '9.0'
 
 s.source_files = 'SwiftUIDebug/Classes/**/*'
 
-# s.resource_bundles = {
-#   'SwiftUIDebug' => ['SwiftUIDebug/Assets/*.png']
-# }
+ s.resource_bundles = {
+   'SwiftUIDebug' => ['SwiftUIDebug/Assets/*.png']
+ }
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
