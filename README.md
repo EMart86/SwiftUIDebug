@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
 
-![Animation](https://gfycat.com/gifs/detail/AnyScrawnyBarnowl)
+![Animation](https://thumbs.gfycat.com/AnyScrawnyBarnowl-size_restricted.gif)
 
 ## Example
 
