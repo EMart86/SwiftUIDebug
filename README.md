@@ -1,6 +1,6 @@
 # SwiftUIDebug
 
-[![CI Status](http://img.shields.io/travis/eberl_ma@gmx.at/SwiftUIDebug.svg?style=flat)](https://travis-ci.org/eberl_ma@gmx.at/SwiftUIDebug)
+[![CI Status](http://img.shields.io/travis/EMart86/SwiftUIDebug.svg?style=flat)](https://travis-ci.org/eberl_ma@gmx.at/SwiftUIDebug)
 [![Version](https://img.shields.io/cocoapods/v/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
 [![License](https://img.shields.io/cocoapods/l/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftUIDebug.svg?style=flat)](http://cocoapods.org/pods/SwiftUIDebug)
